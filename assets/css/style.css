@@ -11,11 +11,12 @@
   outline: none;
   text-decoration: none;
   scroll-behavior: smooth;
+  /* border: none; */
 }
 body {
   font-family: var(--fontOne);
-  background-color: #010101;
-  color: var(--primaryColor);
+  background-color: #fff;
+  color: var(--secondColor);
 }
 /* navbar style */
 .navbar {
@@ -23,22 +24,23 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 7%;
+  background-color: #fff;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 9999;
-  border-bottom: 1px solid var(--secondColor);
+  box-shadow: 1px 1px 3px #fff;
 }
 .navbar .logo {
   display: inline-block;
-  color: var(--primaryColor);
+  color: #000;
   font-size: 2rem;
   font-weight: 900;
   letter-spacing: 1px;
 }
 .navbar .logo span {
-  color: var(--secondColor);
+  color: #000;
   font-style: italic;
 }
 .navbar .navbar-nav {
@@ -47,7 +49,7 @@ body {
 .navbar .navbar-nav a {
   display: inline-block;
   margin: 0 1.5rem;
-  color: var(--primaryColor);
+  color: #000;
   font-size: 1.2rem;
   letter-spacing: 1px;
 }
@@ -77,11 +79,10 @@ body {
 
 /* navbar style end */
 /* hero style */
-.hero .row img,
+
 .hero .row .content h1,
 .hero .row .content h2,
 .hero .row .content h3,
-svg,
 .hero .row .content p {
   transform: translateX(50px);
   filter: blur(50px);
@@ -100,24 +101,44 @@ svg,
   }
 }
 .hero {
+  margin-top: 4rem;
   min-height: 100vh;
   display: flex;
   align-items: center;
+  background-image: url(../img/header-portfolio.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
+
 .hero .row {
-  padding: 1rem 7%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 15rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 109%;
+  background-image: linear-gradient(
+    to top,
+    #fff 0,
+    rgba(105, 90, 166, 0.35) 99%,
+    rgba(105, 90, 166, 0.5) 100%
+  );
 }
 .hero .row .content {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  text-align: center;
-  font-family: var(--fontTwo);
-  line-height: 1.5;
+  margin: 30rem;
 }
+
 .hero .row .content h1 {
   letter-spacing: 1px;
   font-size: 2.5em;
@@ -133,32 +154,23 @@ svg,
   font-size: 2rem;
   font-weight: 300;
 }
-.hero .content-img img {
-  object-fit: cover;
-  object-position: center;
-}
-svg {
-  width: 370px;
-  position: absolute;
-  top: 4rem;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  margin: 0 7rem;
-  left: 55rem;
-}
-
 /* hero style end */
 /* about style */
 .about,
-.skills {
-  padding: 6.5rem 7% 2rem;
+.skills,
+.experience,
+.projects,
+.contact {
+  padding: 6rem 7% 2rem;
   font-family: var(--fontTwo);
 }
 .about h2,
-.skills h2 {
+.skills h2,
+.projects h2,
+.contact h2 {
   text-align: center;
   font-size: 2rem;
+  font-family: var(--fontOne);
 }
 .about h2 span,
 .skills h2 span {
@@ -166,41 +178,52 @@ svg {
 }
 .about .row {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 2.5rem;
 }
+.about .row .img-about img {
+  width: auto;
+  height: 95%;
+}
+
 .about .row .content {
-  flex: 1 1 45rem;
-  width: 100%;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  margin-top: 40px;
+  margin-right: 100px;
 }
-.about .row .img-about {
-  flex: 1 1 35rem;
+.about .row .content-right {
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+  margin-top: 40px;
 }
+
 /* about style end */
 /* skills style */
-.skills {
-  padding: 6.5rem 7% 2rem;
-}
 .skills .row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  width: 70%;
   margin: 2rem auto;
 }
 .skills .row .card {
   text-align: center;
+  min-width: 200px;
   padding: 1.8rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 1px 1px var(--secondColor);
   transition: all 0.5s ease-in-out;
-  opacity: 0.3;
+}
+.skills .row .card h3 {
+  color: var(--secondColor);
+  margin-top: 1rem;
 }
 .skills .row .card:hover {
-  opacity: 1;
-  text-transform: scale(1.1);
+  transform: scale(1.1);
+  cursor: pointer;
 }
 .skills .row .card i {
   font-size: 5rem;
@@ -216,33 +239,166 @@ svg {
 .skills .row .card i.yellow {
   color: #f0db4f;
 }
-.skills .row .card h3 {
-  font-size: 1.5rem;
-  color: var(--secondColor);
+/* skills style end */
+/* experience style */
+.experience .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  gap: 5rem;
+  line-height: 1.7;
+}
+.experience .row .content-experience {
+  max-width: 40rem;
+}
+
+.experience .row .content-experience .history h3,
+.experience .row .content-education h3 {
+  text-align: center;
+}
+.experience .row .content-experience .history p {
+  max-width: 30rem;
+  text-align: justify;
+}
+.experience .row .content-education {
+  max-width: 40rem;
+}
+/* experience style end */
+/* projects style */
+.projects .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 1rem;
 }
-/* skills style end */
+.projects .row .card {
+  width: 30%;
+  padding: 20px;
+  text-align: center;
+  margin: 1rem;
+  box-shadow: 1px 1px 7px var(--secondColor);
+}
+.projects .row .card img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  transition: all 0.5s ease-in-out;
+}
+.projects .row .card img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.projects .row .card h3 {
+  margin-top: 0.5rem;
+  font-weight: 100;
+  line-height: 1.7;
+}
+/* projects style end */
+/* contact style */
+.contact .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+.contact .row form {
+  margin-top: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 40%;
+  padding: 0 0 1.2rem;
+  opacity: 0.6;
+}
+.contact .row form .input-grup {
+  margin-top: 1.2rem;
+  line-height: 1.7;
+}
+.contact .row form .input-grup input {
+  width: 100%;
+  height: 2rem;
+  border: 1px solid var(--secondColor);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  font-size: 1.2rem;
+}
+.contact .row form .input-grup textarea {
+  font-size: 1.2rem;
+  padding: 1rem 0 0 1.5rem;
+  width: 100%;
+  margin-bottom: 0.9rem;
+}
+input:focus,
+textarea:focus {
+  box-shadow: 1px 1px 10px #000;
+}
+.contact .row form button {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  cursor: pointer;
+  color: #000;
+  font-size: 1.2rem;
+  border: 0.1rem solid var(--secondColor);
+  margin: auto;
+}
+.contact .row form button:hover {
+  background-color: var(--secondColor);
+  color: #000;
+}
+/* contact style end */
 /* btn__up */
 .btn__up a {
   position: fixed;
-  background-color: var(--primaryColor);
+  background-color: #000;
   bottom: 0;
   right: 0;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   text-align: center;
   border-radius: 100%;
   cursor: pointer;
-  color: seagreen;
+  color: var(--secondColor);
   margin: 2rem 2rem;
 }
-/* footer style */
-.footer {
-  background-color: var(--secondColor);
-  width: 100%;
-  height: auto;
+.btn__up a i {
+  font-size: 1.5rem;
   text-align: center;
-  padding: 1.5rem;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+/* footer style */
+.footer .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 1px 1px 3px var(--secondColor);
+  padding: 1rem;
+}
+.footer .row .links a {
+  color: #000;
+  font-size: 1.2rem;
+  display: inline-block;
+  margin: 0.5rem;
+}
+.footer .row a:hover {
+  color: var(--secondColor);
+}
+.footer .row .social a {
+  font-size: 2rem;
+  display: inline-block;
+  margin: 0.5rem;
+  color: #000;
+}
+.footer .row .social a:hover {
+  color: var(--secondColor);
+}
+.footer .row .copyright p {
+  font-size: 1.2rem;
+  color: #000;
 }
 /* media query style */
 @media (max-width: 1360px) {
@@ -258,19 +414,19 @@ svg {
   #burger {
     display: inline-block;
     font-size: 1.8rem;
-  }
-  #toggle {
-    font-size: 1.8rem;
+    color: #000;
   }
   .navbar .logo {
-    mix-blend-mode: color-dodge;
+    color: var(--secondColor);
+    font-size: 24;
   }
   .navbar .navbar-nav {
     position: absolute;
     top: 100%;
-    width: 30%;
+    width: 40%;
     height: 100vh;
     left: -100%;
+    margin-left: -15px;
     background-color: rgba(0, 0, 0, 0.1);
     padding: 1rem 0;
   }
@@ -303,46 +459,34 @@ svg {
     align-items: center;
     text-align: center;
   }
-  .hero .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    max-width: 60rem;
+  .hero .overlay {
+    z-index: -1;
   }
   .hero .row .content {
-    margin: 1rem 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero .row .content h3 {
+    font-size: 2.5rem;
+    font-weight: 100;
   }
   .hero .row .content h1 {
-    font-size: 2.4rem;
+    font-size: 4rem;
+    font-weight: 500;
     line-height: 1.2;
   }
   .hero .row .content h2 {
-    font-size: 1.5rem;
-    line-height: 3;
-  }
-  .hero .row .content h3 {
-    font-size: 1.5rem;
-    line-height: 3;
-  }
-  .hero .row .content p {
-    font-size: 1.2rem;
+    font-size: 4rem;
     font-weight: 100;
   }
-  .hero .row .content-img {
-    margin-top: -10rem;
+  .hero .row .content p {
+    font-size: 2rem;
+    font-weight: 100;
   }
-  .hero .row .content-img img {
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-  svg {
-    position: absolute;
-    text-align: center;
-    bottom: 0;
-    left: -15px;
-    top: 18rem;
+  .hero .row .content a {
+    font-size: 1.5rem;
   }
   /* about responsive */
   .about .row {
@@ -350,18 +494,26 @@ svg {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-  }
-  .about .row .content-about {
-    text-align: center;
-    margin-top: 2rem;
+    max-width: 60rem;
+    line-height: 1.4;
   }
   .about .row .img-about {
-    margin-top: 5rem;
+    margin-top: 2rem;
   }
   .about .row .img-about img {
     width: 100%;
     object-fit: cover;
     object-position: center;
+  }
+  .about .row .content-about {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+  }
+  .about .row .content-about .content-right {
+    text-align: end;
   }
   /* skills responsive */
   .skills .row {
@@ -377,5 +529,108 @@ svg {
   }
   .about .row .card h3 {
     color: red;
+  }
+  /* experience responsive */
+  .experience .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+  }
+  .experience .row .content-experience .history {
+    font-size: 1.2rem;
+    line-height: 1.7;
+  }
+  .experience .row .content-experience .history h3,
+  .experience .row .content-education h3 {
+    font-size: 2rem;
+    color: #000;
+  }
+  .experience .row .content-education .history {
+    margin-left: -15px;
+    font-size: 1.2rem;
+    line-height: 1.7;
+  }
+  /* projects responsive  */
+  .projects .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .projects .row .card {
+    width: 100%;
+    height: 100%;
+    margin-top: 1.5rem;
+  }
+  .projects .row .card img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .projects .row .card h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  .projects .row .card p {
+    font-size: 1.5rem;
+    font-weight: 100;
+    letter-spacing: 1px;
+  }
+  /* contact responsive */
+  .contact .row form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+  }
+  .contact .row form .input-grup input {
+    padding: 2rem;
+    font-size: 1.8rem;
+  }
+  input:focus,
+  textarea:focus {
+    box-shadow: 1px 1px 10px #000;
+  }
+  .contact .row form .input-grup textarea {
+    padding: 2rem;
+    font-size: 1.8rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .contact .row form button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    margin: 0 auto;
+  }
+  .contact .row form button:hover {
+    background-color: var(--secondColor);
+    color: #000;
+  }
+  /* footer responsive */
+  .footer .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer .row .links a {
+    font-size: 1.5rem;
+  }
+  .footer .row .social a {
+    font-size: 2.5rem;
+  }
+  .footer .row .copyright p {
+    font-size: 1.5rem;
+  }
+  .btn__up a {
+    text-align: center;
+    width: 30px;
+    height: 30px;
+  }
+  .btn__up a i {
+    font-size: 2rem;
   }
 }
