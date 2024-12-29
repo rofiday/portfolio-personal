@@ -135,7 +135,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 30rem;
+  margin-top: 30rem;
 }
 
 .hero .row .content h1 {
