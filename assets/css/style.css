@@ -213,7 +213,6 @@ body {
   min-width: 200px;
   padding: 1.8rem;
   border-radius: 0.5rem;
-  box-shadow: 0 0 1px 1px var(--secondColor);
   transition: all 0.5s ease-in-out;
 }
 .skills .row .card h3 {
