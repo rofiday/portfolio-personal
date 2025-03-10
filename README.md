@@ -6,12 +6,8 @@
 - View the website
 
 # Tech Stack
-
-![Image](https://github.com/user-attachments/assets/8a494659-ac67-4bf8-8ab1-2d7fcf1a8bd2)
-
-![Image](https://github.com/user-attachments/assets/b41d15e1-641c-4722-9dd1-c11772722d58)
-
-
+### HTML
+### CSS
 ### JAVASCRIPT
 
 # Feature
