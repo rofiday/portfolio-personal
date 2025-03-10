@@ -7,9 +7,10 @@
 
 # Tech Stack
 
-[https://e7.pngegg.com/pngimages/780/934/png-clipart-html-logo-html5-logo-icons-logos-emojis-tech-companies-thumbnail.png](url)
+![Image](https://github.com/user-attachments/assets/8a494659-ac67-4bf8-8ab1-2d7fcf1a8bd2)
 
-### CSS
+![Image](https://github.com/user-attachments/assets/b41d15e1-641c-4722-9dd1-c11772722d58)
+
 
 ### JAVASCRIPT
 
